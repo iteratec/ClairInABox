@@ -1,0 +1,52 @@
+<h1>Vulnerabilities Report for image <em>{{image}}</em></h1>
+
+<h2>Summary</h2>
+<ul>
+<li>Total number of vulnerabilities: {{totalNumber}}</li>
+<li>Unapproved issues: {{noOfUnapproved}}</li>
+<li>Approved issues: {{noOfApproved}}</li>
+</ul>
+
+
+<h2>Unapproved CVEs</h2>
+{{#unapproved}}
+<h3>{{featurename}}: {{featureversion}} (<a href="{{link}}">{{vulnerability}}</a>)</h3>
+
+<table style="width:100%">
+<col width="10%">
+<tr>
+<td valign="top"><b>Namespace</b></td valign="top"><td valign="top">{{namespace}}</td valign="top">
+</tr>
+<tr>
+<td valign="top"><b>Description:</b></td valign="top"><td valign="top"> {{description}}<br/></td valign="top">
+</tr>
+<tr>
+<td valign="top"><b>Severity:</b></td valign="top"><td valign="top"> {{severity}}<br/></td valign="top">
+</tr>
+<tr>
+<td valign="top"><b>Fixed by version:</b></td valign="top"><td valign="top"> {{fixedby}}<br/></td valign="top">
+</tr>
+</table>
+
+{{/unapproved}}
+
+<h2>Approved CVEs</h2>
+{{#approved}}
+<h3>{{featurename}}: {{featureversion}} (<a href="{{link}}">{{vulnerability}}</a>)</h3>
+
+<table style="width:100%">
+<col width="10%">
+<tr>
+<td valign="top"><b>Namespace</b></td valign="top"><td valign="top">{{namespace}}</td valign="top">
+</tr>
+<tr>
+<td valign="top"><b>Description:</b></td valign="top"><td valign="top"> {{description}}<br/></td valign="top">
+</tr>
+<tr>
+<td valign="top"><b>Severity:</b></td valign="top"><td valign="top"> {{severity}}<br/></td valign="top">
+</tr>
+<tr>
+<td valign="top"><b>Fixed by version:</b></td valign="top"><td valign="top"> {{fixedby}}<br/></td valign="top">
+</tr>
+</table>
+{{/approved}}

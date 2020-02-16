@@ -1,0 +1,16 @@
+{
+"image": .image,
+"totalNumber": .vulnerabilities | length,
+"noOfUnapproved": .unapproved | length,
+"noOfApproved": [
+	.unapproved as $bad | .vulnerabilities[] | select(.vulnerability as $v | $bad | index($v) | not )
+		] | length,
+# Put all unapproved vulnerabilities under this map
+"unapproved": [
+	.unapproved as $bad | .vulnerabilities[] | select(.vulnerability as $v | $bad | index($v) )
+		],
+# Put all approved vulnerabilities under this map
+"approved": [
+	.unapproved as $bad | .vulnerabilities[] | select(.vulnerability as $v | $bad | index($v) | not )
+		]
+}
