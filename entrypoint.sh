@@ -2,7 +2,7 @@
 
 # Setup unique naming scheme
 # Note: %3N for getting milliseconds does not work on that base image.
-# This means, we cannot start multiple instances of the scanner within one second (see issue #12).
+# This means, we cannot start multiple instances of the scanner within one second.
 timestamp=`date +"%y%m%d%H%M%S"`
 projectName=${PROJECT_NAME}_${timestamp}
 
@@ -10,7 +10,7 @@ networkName=net_${projectName}
 dbContainerName=db_${projectName}
 scannerContainerName=scanner_${projectName}
 
-clairScannerImage="ciab.docker/ciab-scanner:latest"
+clairScannerImage="codebirdone/clair-local-scan"
 
 # TODO: Check variables
 
@@ -53,13 +53,13 @@ echo "Using provided whitelist: $WHITELIST"
 if [ -z "$WHITELIST" ];
 then
     echo "DEBUG: Proceeding without whitelist"
-    /clair-scanner -c http://"$scannerContainerName":6060 --threshold="$THRESHOLD" --ip "$currentIp" -r /result/clair-report.json -l /result/clair-log.log "$IMAGE_TO_SCAN"
+    /clair-scanner -c http://"$scannerContainerName":6060 --threshold="$THRESHOLD" --ip "$currentIp" --network "$networkName" -r /result/clair-report.json -l /result/clair-log.log "$IMAGE_TO_SCAN"
 else
     whitelistFile=/etc/clair-whitelist.yml
     echo "$WHITELIST" > $whitelistFile
     echo "DEBUG: Content of whitelistfile:"
     cat $whitelistFile
-    /clair-scanner -c http://"$scannerContainerName":6060 --threshold="$THRESHOLD" --ip "$currentIp" -r /result/clair-report.json -l /result/clair-log.log -w "$whitelistFile" "$IMAGE_TO_SCAN"
+    /clair-scanner -c http://"$scannerContainerName":6060 --threshold="$THRESHOLD" --ip "$currentIp" --network "$networkName" -r /result/clair-report.json -l /result/clair-log.log -w "$whitelistFile" "$IMAGE_TO_SCAN"
 fi
 
 # Capturing the result code of the scan for later to return it as result of the job
