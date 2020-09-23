@@ -26,7 +26,7 @@ docker run --rm -d -v /var/run/docker.sock:/var/run/docker.sock
 ```
 
 ### How to run the scanner in GitLab-CI:
-Example for iteratec Office Map project
+
 ```
 clair-scan:
   stage: test_security
