@@ -10,7 +10,7 @@ networkName=net_${projectName}
 dbContainerName=db_${projectName}
 scannerContainerName=scanner_${projectName}
 
-clairScannerImage="codebirdone/clair-local-scan"
+clairScannerImage="iteratec/clair-local-scan"
 
 # TODO: Check variables
 
