@@ -48,6 +48,6 @@ clair-scan:
 ```
 
 **Note**
-At least the passwords should be provide as secret GitLab environment parameters.
+We cannot guarantee further development, improvement of the project nor fast response time in case of issues.
 
 
