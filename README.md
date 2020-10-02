@@ -18,7 +18,6 @@ The clair security scanner for docker images, as a self-contained build containe
 
 ### How to run the scanner locally:
 ```
-docker login ciab.docker.iteratec.io
 docker run --rm -d -v /var/run/docker.sock:/var/run/docker.sock 
     -e PROJECT_NAME=<project name> 
     -e IMAGE_TO_SCAN=<scan image name>
