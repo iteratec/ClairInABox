@@ -8,9 +8,9 @@ The clair security scanner for docker images, as a self-contained build containe
 | ------ | ------ | ------ |
 | PROJECT_NAME | The name of the project to be scanned | yes |
 | IMAGE_TO_SCAN | The ID of the docker image to be scanned. <br>Can be an ID from Docker Hub like `arminc/clair-db:2019-03-17` or an URI to your own repository | yes |
-| IMAGE_TO_SCAN_REPO_URL | The URL for alternative Docker repository containing the image to be scanned (for login). | no - only of login is required |
-| IMAGE_TO_SCAN_REPO_USERNAME | The username for the authentication to the alternative Docker repository | no - only of login is required |
-| IMAGE_TO_SCAN_REPO_PASSWORD | The username for the authentication to the alternative Docker repository | no - only of login is required |
+| IMAGE_TO_SCAN_REPO_URL | The URL for alternative Docker repository containing the image to be scanned (for login). | no - only if login is required |
+| IMAGE_TO_SCAN_REPO_USERNAME | The username for the authentication to the alternative Docker repository | no - only if login is required |
+| IMAGE_TO_SCAN_REPO_PASSWORD | The username for the authentication to the alternative Docker repository | no - only if login is required |
 | THRESHOLD | The threshold of issue severity which will cause the build to fail (see [Official Clair Documentation](https://github.com/arminc/clair-scanner/blob/master/README.md)). <br/>Possible values are: 'Defcon1', 'Critical', 'High', 'Medium', 'Low', 'Negligible', 'Unknown' | no, default is "unknown" |
 | WHITELIST | Provide a whitelist for approved CVE numbers as defined in [Clair Documentation](https://github.com/arminc/clair-scanner/blob/master/README.md#example-whitelist-yaml-file). The parameter expects the content in the described yaml format - including line breaks and indentation. | no |
 
