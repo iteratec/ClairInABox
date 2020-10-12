@@ -21,7 +21,7 @@ The clair security scanner for docker images, as a self-contained build containe
 docker run --rm -d -v /var/run/docker.sock:/var/run/docker.sock 
     -e PROJECT_NAME=<project name> 
     -e IMAGE_TO_SCAN=<scan image name>
-    iteratec/claireinabox:latest
+    iteratec/clairinabox:latest
 ```
 
 ### How to run the scanner in GitLab-CI:
@@ -43,7 +43,7 @@ clair-scan:
       -e IMAGE_TO_SCAN_REPO_URL=$CIAB_TARGET_REGISTRY_URL
       -e WHITELIST="$WHITELIST_CONTENT"
       -e IMAGE_TO_SCAN=<your image URi> 
-      iteratec/claireinabox:latest
+      iteratec/clairinabox:latest
 ```
 
 **Note**
